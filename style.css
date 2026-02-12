@@ -209,3 +209,7 @@ display: inline-block;
 .hidder{
     display: none;
 }
+
+.hidden {
+    display: none;
+}
