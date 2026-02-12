@@ -55,16 +55,14 @@ yesBtn.addEventListener("click", () => {
 
     finalText.style.display = "block";
 
-    // Send response to Discord
-    const webhookURL = "https://discord.com/api/webhooks/1471372248152670249/WgqnJvwJvES5yoWd9SG-LrIbCxG1qk7UMCJEfdcHsisrWemnuq7020e5UwQDWt-9xrQC";
-    const message = {
-        content: "💌 **Someone clicked YES!** They said yes to being your Valentine! ✨",
-        timestamp: new Date().toISOString()
-    };
+    // Send response to Formspree
+    const formspreeURL = "https://formspree.io/f/xdalaqdk";
+    const formData = new FormData();
+    formData.append("response", "YES - They said yes to being your Valentine! ✨");
+    formData.append("timestamp", new Date().toISOString());
 
-    fetch(webhookURL, {
+    fetch(formspreeURL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(message)
+        body: formData
     }).catch(err => console.log("Response sent!"));
 });
